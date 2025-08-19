@@ -13,7 +13,7 @@ export const routes: Routes = [
         component: HomeComponent 
     },
     { 
-        path: 'profile/:username', 
+        path: 'perfil/:username', 
         component: ProfileComponent 
     },
     { 
