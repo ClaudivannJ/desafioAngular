@@ -1,1 +1,102 @@
-<p>profile works!</p>
+<header class="header">
+  <div class="header-content">
+    <a routerLink="/" class="back-link">
+      <fa-icon [icon]="faArrowLeft" class="back-icon"></fa-icon> 
+      Voltar
+    </a>
+    <h1 class="logo">Search <span>d_evs</span></h1>
+
+    <form (ngSubmit)="onSearch()" [formGroup]="searchForm" class="search-form">
+      <input
+        formControlName="username"
+        type="text"
+        placeholder="Buscar usuário..."
+        class="search-input"
+      />
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </div>
+</header>
+
+
+<main class="main-content">
+  <div class="profile-section" *ngIf="!loading && !error && user as user; else statusTpl">
+    <aside class="user-profile">
+      <div class="user-profile-header">
+        <img [src]="user.avatar_url" alt="Avatar" class="user-avatar" />
+        <div class="user-names">
+          <h2 class="user-fullname">{{ user.name || user.login }}</h2>
+          <p class="user-username">@{{ user.login }}</p>
+        </div>
+      </div>
+
+
+      <p class="user-bio" *ngIf="user.bio">{{ user.bio }}</p>
+
+
+      <div class="user-details">
+        <div *ngIf="user.company" class="detail-item">
+          <fa-icon [icon]="faBuilding" class="detail-icon"></fa-icon>
+          <span>{{ user.company }}</span>
+        </div>
+        
+        <div *ngIf="user.location" class="detail-item">
+          <fa-icon [icon]="faMapMarker" class="detail-icon"></fa-icon>
+          <span>{{ user.location }}</span>
+        </div>
+        
+        <div *ngIf="user.email" class="detail-item">
+          <fa-icon [icon]="faEnvelope" class="detail-icon"></fa-icon>
+          <span>{{ user.email }}</span>
+        </div>
+        
+        <div *ngIf="siteUrl()" class="detail-item">
+          <fa-icon [icon]="faLink" class="detail-icon"></fa-icon>
+          <a [href]="siteUrl()!" target="_blank" class="detail-link">{{ user.blog }}</a>
+        </div>
+        
+        <div *ngIf="twitterUrl()" class="detail-item">
+          <fa-icon [icon]="faTwitter" class="detail-icon"></fa-icon>
+          <a [href]="twitterUrl()!" target="_blank" class="detail-link">@{{ user.twitter_username }}</a>
+        </div>
+      </div>
+
+ 
+      <a class="contact-btn" [href]="user.html_url" target="_blank">
+        Contato
+      </a>
+    </aside>
+
+
+    <section class="repos-section">
+      <h3 class="repos-title">Repositórios</h3>
+      
+      <div class="repos-list">
+        <article *ngFor="let repo of repos" class="repo-card">
+      
+          <a [href]="repo.html_url" target="_blank" class="repo-name">
+            {{ repo.name }}
+          </a>
+        
+          <p class="repo-desc">{{ repo.description || 'Sem descrição' }}</p>
+          
+          <div class="repo-footer">
+            <div class="repo-stat">
+              <fa-icon [icon]="faStar" class="repo-icon"></fa-icon>
+              <span>{{ repo.stargazers_count }}</span>
+            </div>
+            <div class="repo-stat">
+              <fa-icon [icon]="faClock" class="repo-icon"></fa-icon>
+              <span>{{ getTimeAgo(repo.updated_at) }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <ng-template #statusTpl>
+    <div *ngIf="loading" class="loading">Carregando...</div>
+    <div *ngIf="error" class="error">Usuário não encontrado ou erro na API</div>
+  </ng-template>
+</main>
