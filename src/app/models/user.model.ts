@@ -3,6 +3,7 @@ export interface User {
     name: string;
     avatar_url: string;
     bio: string;
+    html_url:string;
     company?:string;
     location?: string;
     email?: string;
