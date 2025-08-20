@@ -4,7 +4,7 @@
     </h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="search-form">
         <div class="search-input-box">
-            <i></i> <input type="text" placeholder="Search" formControlName="username" aria-label="Buscar usuário do github">
+            <fa-icon [icon]="faSearch" class="search-icon"></fa-icon><input type="text" placeholder="Search" formControlName="username" aria-label="Buscar usuário do github">
         </div>
         
         <button type="submit" [disabled]="form.invalid">Search</button>
