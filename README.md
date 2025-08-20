@@ -1,59 +1,116 @@
-# DesafioAngular
+# GitHub Profile Finder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+Aplicação Angular para buscar perfis de desenvolvedores no GitHub e
+exibir informações detalhadas, incluindo seus repositórios ordenados por
+número de estrelas.
 
-## Development server
+## 🚀 Objetivo do Desafio
 
-To start a local development server, run:
+Construir uma aplicação Angular que busque o perfil de desenvolvedores
+na API pública do GitHub e exiba seus dados em uma página de perfil.
 
-```bash
+## 📝 Histórias de Usuário
+
+-   Na **Home**, o usuário pode pesquisar por um `username` do GitHub.\
+-   Ao submeter a busca, é redirecionado para a **página de Perfil**,
+    onde:
+    -   Os dados do usuário são exibidos.\
+    -   Os repositórios aparecem ordenados do que tem mais estrelas para
+        o que tem menos.\
+    -   Cada repositório é um link para o repositório original no
+        GitHub.\
+    -   Caso o perfil possua **site** ou **Twitter**, botões com ícones
+        direcionam para esses links.\
+    -   Há um botão de **voltar** que leva de volta para a home.
+
+## 🛠️ Tecnologias Utilizadas
+
+-   **Angular 20.1** (standalone components)
+-   **TypeScript**
+-   **CSS puro**
+-   **Font Awesome** (ícones)
+-   **API pública do GitHub**
+
+## 📂 Estrutura de Pastas
+
+    src/app/
+    │── models/         # Interfaces de User e Repo
+    │── services/       # GithubApiService (requisições à API)
+    │── home/           # Página inicial de busca
+    │── profile/        # Página de perfil do usuário
+    │── app.routes.ts   # Rotas da aplicação
+    │── app.component.ts
+
+## ⚙️ Instalação e Execução
+
+### 🔹 Pré-requisitos
+
+-   Node.js **\>= 20**
+-   npm **\>= 10**
+-   Angular CLI **\>= 20.1**
+
+### 🔹 Clonar o projeto
+
+``` bash
+git clone https://github.com/ClaudivannJ/desafioAngular.git
+cd desafioAngular
+```
+
+### 🔹 Instalar dependências
+
+``` bash
+npm install
+```
+
+### 🔹 Rodar em ambiente de desenvolvimento
+
+``` bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse: **http://localhost:4200**
 
-## Code scaffolding
+### 🔹 Gerar build de produção
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+``` bash
+ng build --configuration production
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📌 Endpoints da API do GitHub
 
-```bash
-ng generate --help
-```
+-   **Buscar usuário** → `https://api.github.com/users/{username}`\
+-   **Buscar repositórios** →
+    `https://api.github.com/users/{username}/repos`
 
-## Building
+## 🎨 Layout
 
-To build the project run:
+O layout foi seguido **fielmente** ao Figma:\
+[Link do Design no
+Figma](https://www.figma.com/design/UhCv9vGXec1jKOsZqmEFdG/Teste-Petize?node-id=16-1130&t=1Qh7f3Ju1qBRXLvH-0)
 
-```bash
-ng build
-```
+-   Responsivo para **desktop, tablet e mobile**.\
+-   Ícones foram adicionados em todos os elementos relevantes
+    (seguidores, localização, empresa, repositórios etc).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔧 Decisões Técnicas
 
-## Running unit tests
+-   Uso de **standalone components** para simplificar a arquitetura e
+    reduzir boilerplate.\
+-   Uso de **RxJS com subscribe** para controle direto das requisições.\
+-   **Font Awesome** para ícones semelhantes ao design do Figma.\
+-   **CSS puro**, garantindo fidelidade ao design sem dependência de
+    bibliotecas externas.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## ✅ Requisitos Atendidos
 
-```bash
-ng test
-```
+✔️ Home para busca de usuários\
+✔️ Página de perfil com dados e repositórios ordenados por estrelas\
+✔️ Links para repositórios, site e Twitter\
+✔️ Botão de voltar para home\
+✔️ Layout responsivo (desktop, tablet, mobile)\
+✔️ Ícones aplicados em todos os elementos
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+------------------------------------------------------------------------
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desenvolvido por Claudivannj.
