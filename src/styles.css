@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-start: #2F80ED;
+  --color-end: #8C19D2;
+  --purple: #8C19D2;
+  --purple-700: #6C4DFF;
+  --lavender: #F3ECFF;
+  --text: #4A5568;
+  --title-profile: #171923;
+  --black-alpha-500: #0000005C;
+  --gray-200: #E2E8F0;
+  --gray-400: #A0AEC0;
+  --border: #E5E7EB;
+  --bg: #FFFFFF;
+  --font-primary: 'Nunito';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {
+height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Nunito, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit
+}
