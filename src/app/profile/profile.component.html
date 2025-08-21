@@ -7,12 +7,16 @@
     <h1 class="logo">Search <span>d_evs</span></h1>
 
     <form (ngSubmit)="onSearch()" [formGroup]="searchForm" class="search-form">
+      <div class="search-input-box">
+        <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
       <input
         formControlName="username"
         type="text"
         placeholder="Buscar usuário..."
         class="search-input"
       />
+      </div>
+      
       <button type="submit" class="search-btn">Search</button>
     </form>
   </div>
@@ -29,7 +33,17 @@
           <p class="user-username">@{{ user.login }}</p>
         </div>
       </div>
-
+      <!-- estátisticas do usuário -->
+      <div class="user-stats">
+        <div class="stat-item">
+          <fa-icon [icon]="faUsers" class="stat-icon"></fa-icon>
+          {{ user.followers }} seguidores
+        </div>
+        <div class="stat-item">
+          <fa-icon [icon]="faUserPlus" class="stat-icon"></fa-icon>
+          {{ user.following }} seguindo
+        </div>
+      </div>
 
       <p class="user-bio" *ngIf="user.bio">{{ user.bio }}</p>
 
@@ -56,7 +70,7 @@
         </div>
         
         <div *ngIf="twitterUrl()" class="detail-item">
-          <fa-icon [icon]="faTwitter" class="detail-icon"></fa-icon>
+          <fa-icon [icon]="faXTwitter" class="detail-icon"></fa-icon>
           <a [href]="twitterUrl()!" target="_blank" class="detail-link">@{{ user.twitter_username }}</a>
         </div>
       </div>
@@ -69,8 +83,6 @@
 
 
     <section class="repos-section">
-      <h3 class="repos-title">Repositórios</h3>
-      
       <div class="repos-list">
         <article *ngFor="let repo of repos" class="repo-card">
       

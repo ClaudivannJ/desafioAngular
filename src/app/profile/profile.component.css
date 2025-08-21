@@ -1,15 +1,25 @@
-
 .header {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: #FFFFFF;
   border-bottom: 1px solid #E5E7EB;
-  padding: 16px 0;
-  width: 100%;
+  /* padding: 16px 0; */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  z-index: 999;
+  
 }
 
 .header-content {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+  width: 80%;
+  margin: 0;
+  /* padding: 0 40px; */
   display: flex;
   align-items: center;
   gap: 40px;
@@ -19,7 +29,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #8C19D2;
+  color: var(--purple);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
@@ -33,12 +43,13 @@
 .logo {
   font-size: 24px;
   font-weight: 700;
-  color: #000000;
-  margin-right: auto;
+  color: var(--color-start);
+  margin-right: 90px;
 }
 
 .logo span {
-  color: #8C19D2;
+  color: var(--purple);
+  margin-left: 4px;
 }
 
 .search-form {
@@ -46,29 +57,45 @@
   gap: 12px;
   align-items: center;
 }
+.search-input-box {
+  /* min-width: 280px; */
+  width: min(390px, 590px, 1700px);
+  height: 45px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--purple);
+  border-radius: 4px;
+  padding: 6px 10px;
+  background: #fff;
+  /* box-shadow: 0 1px 0 rgba(0, 0, 0, .02); */
+}
+.search-input-box .search-icon{
+  color: var(--text-gray);
+}
 
 .search-input {
-  padding: 10px 16px;
-  border: 1px solid #E5E7EB;
-  border-radius: 8px;
-  font-size: 14px;
-  width: 300px;
+  padding: 10px 4px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
   background: #FFFFFF;
-  color: #4A5568;
+  color: var(--text-gray);
   font-family: inherit;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #8C19D2;
+  border-color: var(--purple);
 }
 
 .search-btn {
+  height: 45px;
   padding: 10px 20px;
-  background: #8C19D2;
+  background: var(--purple);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -78,8 +105,9 @@
 
 .main-content {
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 40px;
+  width: 80%;
+  margin: 150px auto;
+  /* padding: 0 40px; */
 }
 
 
@@ -92,13 +120,15 @@
 
 
 .user-profile {
+  width: 280px;
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 12px;
-  padding: 32px;
+  border-radius: 4px;
+  padding: 20px;
 }
 
 .user-profile-header {
+  width: 250px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -106,8 +136,8 @@
 }
 
 .user-avatar {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 3px solid #F3ECFF;
 }
@@ -115,10 +145,12 @@
 .user-names {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: baseline;
+  gap: 6px;
 }
 
 .user-fullname {
+  font-family: Inter;
   font-size: 20px;
   font-weight: 700;
   color: var(--title-profile);
@@ -126,21 +158,42 @@
 }
 
 .user-username {
-  font-size: 16px;
-  color: var(--black-alpha-500);
-  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-gray);
+  font-weight: 400;
   margin: 0;
 }
 
-.user-bio {
+.user-stats {
+  display: flex;
+  margin-bottom: 24px;
+  padding: 0 6px;
+  gap: 10px;
+}
+.stat-icon{
+  width: 24px;
+  height: 24px;
+}
+
+.stat-item {
+  font-family: Inter;
   font-size: 14px;
-  color: var(--gray-400);
+  color: var(--text);
+  font-weight: 400;
+}
+
+.user-bio {
+  width: 250px;
+  font-size: 14px;
+  color: var(--text);
   line-height: 1.5;
   margin-bottom: 24px;
   text-align: left;
 }
 
+
 .user-details {
+  width: 250px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -163,13 +216,19 @@
 
 .contact-btn {
   width: 100%;
+  height: 45px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   padding: 8px;
   background: var(--purple);
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
+  line-height: 28px;
   cursor: pointer;
 }
 
@@ -178,7 +237,7 @@
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
   border-radius: 12px;
-  padding: 32px;
+  padding: 12px;
 }
 
 .repos-title {
@@ -192,12 +251,14 @@
 .repos-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 10px; */
 }
 
 .repo-card {
-  padding: 24px;
-  border: 1px solid #E5E7EB;
+  position: relative;
+  height: 170px;
+  padding: 14px;
+  border-bottom: 1px solid #E5E7EB;
   border-radius: 8px;
   background: #FFFFFF;
 }
@@ -205,7 +266,7 @@
 .repo-name {
   font-size: 18px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--title-profile);
   text-decoration: none;
   display: block;
   margin-bottom: 12px;
@@ -225,12 +286,16 @@
 }
 
 .repo-footer {
+  position: absolute;
+  bottom: 20px;
+  /* left: 10px; */
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
 .repo-stat {
+  
   display: flex;
   align-items: center;
   gap: 6px;

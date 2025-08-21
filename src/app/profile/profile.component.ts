@@ -1,18 +1,18 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GithubApiService } from '../services/github-api.service';
 import { User } from '../models/user.model';
 import { Repo } from '../models/repo.model';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBuilding, faMapMarkerAlt, faEnvelope, faLink, faArrowLeft, faStar, faClock } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faBuilding, faMapMarkerAlt, faEnvelope, faLink, faArrowLeft, faStar, faClock, faUsers, faUserPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule, RouterLink],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
@@ -26,10 +26,13 @@ export class ProfileComponent {
   faMapMarker = faMapMarkerAlt;
   faEnvelope = faEnvelope;
   faLink = faLink;
-  faTwitter = faTwitter;
+  faXTwitter = faXTwitter;
   faArrowLeft = faArrowLeft;
   faStar = faStar;
   faClock = faClock;
+  faUsers = faUsers;
+  faUserPlus = faUserPlus;
+  faSearch = faSearch
 
   loading = false;
   error = false;
@@ -43,7 +46,10 @@ export class ProfileComponent {
   constructor() {
     this.route.paramMap.subscribe(params => {
       const username = params.get('username')?.trim();
-      if (username) this.fetchUserAndRepos(username);
+      if (username) {
+        this.searchForm.patchValue({ username }); // ✅ coloca o nome no input
+        this.fetchUserAndRepos(username);
+      }
     });
   }
 
