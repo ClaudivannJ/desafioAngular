@@ -9,7 +9,7 @@
     }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (min-width:360px) and (max-width:767px) {
     .header{
         display: none;
     }
@@ -19,7 +19,7 @@
 
     }
     .main-content {
-        width: 100%;
+        width: 100vw;
         height:100vh;
         margin-top: 0;
         
