@@ -1,4 +1,12 @@
 /* container da seção */
+:host{
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .home {
   margin: 0 auto;
   padding: 0;
@@ -100,10 +108,7 @@
 /* mobile  */
 @media only screen and (max-width:420px) {
   .home {
-   
     width: 100vw;
-    
-    
   }
   .search-form {
     width: 92%;
