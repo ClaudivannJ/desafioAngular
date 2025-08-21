@@ -6,7 +6,6 @@
   left: 0;
   background: #FFFFFF;
   border-bottom: 1px solid #E5E7EB;
-  /* padding: 16px 0; */
   display: flex;
   align-items: center;
   text-align: center;
@@ -16,38 +15,49 @@
 }
 
 .header-content {
-  max-width: 1200px;
   width: 80%;
   margin: 0;
-  /* padding: 0 40px; */
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   gap: 40px;
+  align-items: start;
 }
 
 .back-link {
+  height: 90px;
+  position: absolute;
+  top: 0;
+  left:30px;
   display: flex;
   align-items: center;
-  gap: 8px;
   color: var(--purple);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
+  z-index: 1000;
 }
 
 .back-icon {
   width: 16px;
   height: 16px;
 }
+.title-box{
+  width: 280px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
-.logo {
+.title {
+  text-align: start;
+  font-family: var(--font-primary);
   font-size: 24px;
   font-weight: 700;
   color: var(--color-start);
   margin-right: 90px;
 }
 
-.logo span {
+.title span {
   color: var(--purple);
   margin-left: 4px;
 }
@@ -58,8 +68,7 @@
   align-items: center;
 }
 .search-input-box {
-  /* min-width: 280px; */
-  width: min(390px, 590px, 1700px);
+  width: 80%;
   height: 45px;
   display: flex;
   align-items: center;
@@ -67,7 +76,6 @@
   border-radius: 4px;
   padding: 6px 10px;
   background: #fff;
-  /* box-shadow: 0 1px 0 rgba(0, 0, 0, .02); */
 }
 .search-input-box .search-icon{
   color: var(--text-gray);
@@ -90,6 +98,8 @@
 }
 
 .search-btn {
+  min-width: 80px;
+  width: 20%;
   height: 45px;
   padding: 10px 20px;
   background: var(--purple);
@@ -107,7 +117,6 @@
   max-width: 1200px;
   width: 80%;
   margin: 150px auto;
-  /* padding: 0 40px; */
 }
 
 
@@ -190,16 +199,17 @@
   margin-bottom: 24px;
   text-align: left;
 }
-
-
 .user-details {
   width: 250px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  padding: 6px;
   margin-bottom: 32px;
 }
-
+.social-media .detail-item, .detail-box .detail-item{
+  gap: 6px;
+  margin-top: 10px;
+}
 .detail-item {
   display: flex;
   align-items: center;
@@ -232,11 +242,9 @@
   cursor: pointer;
 }
 
-
 .repos-section {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 12px;
   padding: 12px;
 }
 
@@ -251,7 +259,6 @@
 .repos-list {
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
 }
 
 .repo-card {
@@ -259,7 +266,6 @@
   height: 170px;
   padding: 14px;
   border-bottom: 1px solid #E5E7EB;
-  border-radius: 8px;
   background: #FFFFFF;
 }
 
@@ -288,14 +294,12 @@
 .repo-footer {
   position: absolute;
   bottom: 20px;
-  /* left: 10px; */
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
 .repo-stat {
-  
   display: flex;
   align-items: center;
   gap: 6px;
@@ -309,7 +313,7 @@
   color: #6B7280;
 }
 
-/* Status */
+/* Status carregando */
 .loading {
   text-align: center;
   padding: 60px 0;

@@ -1,0 +1,70 @@
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .title{
+
+        width: 70%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .header{
+        display: none;
+    }
+    .back-link {
+        right: 30px;
+        left: auto;
+
+    }
+    .main-content {
+        width: 100%;
+        height:100vh;
+        margin-top: 0;
+        
+    }
+    .profile-section{
+        display: flex!important;
+        flex-direction: column!important;
+        gap: 0;
+    }
+    .user-profile {
+        width: 100%;
+        background-color: var(--color-perfil-mobile);
+        
+    }
+
+    .user-profile-header{
+        width: 100%;
+    }
+    .user-details {
+        width: 100%;
+    }
+    .detail-box{
+        /* width: 100%; */
+        display: flex;
+        flex-direction: row;
+    }
+    .social-media{
+        display: flex;
+        flex-direction: row;
+    }
+    .social-media .detail-item, .detail-box .detail-item{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 6px;
+        margin-right: 6px;
+    }
+    .detail-link{
+        font-size:12px;
+        margin-right: 6px;
+    }
+    .repos-section{
+        width: 100%;
+    }
+    .repo-card{
+        width: 380px;
+        height: 240px;
+        gap: 10px;
+    }
+}

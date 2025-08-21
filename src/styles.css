@@ -9,6 +9,7 @@
   --lavender: #F3ECFF;
   --text: #4A5568;
   --text-gray: #9CA3AF;
+  --color-perfil-mobile:#EADDFF99;
   --title-profile: #171923;
   --black-alpha-500: #0000005C;
   --gray-200: #E2E8F0;
@@ -16,6 +17,7 @@
   --border: #E5E7EB;
   --bg: #FCFCFC;
   --font-primary: 'Nunito';
+  --font-text: 'Inter';
 }
 
 * {
@@ -28,7 +30,7 @@ html,body{
 }
 
 body {
-  font-family: Nunito, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
 }

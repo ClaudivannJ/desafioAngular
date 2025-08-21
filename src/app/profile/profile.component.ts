@@ -14,7 +14,7 @@ import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule, RouterLink],
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  styleUrls: ['./profile.component.css', './profile.component.responsive.css'],
 })
 export class ProfileComponent {
   private route = inject(ActivatedRoute);
@@ -47,7 +47,7 @@ export class ProfileComponent {
     this.route.paramMap.subscribe(params => {
       const username = params.get('username')?.trim();
       if (username) {
-        this.searchForm.patchValue({ username }); // ✅ coloca o nome no input
+        this.searchForm.patchValue({ username }); // coloca o nome no input
         this.fetchUserAndRepos(username);
       }
     });
